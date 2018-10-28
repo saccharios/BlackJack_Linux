@@ -6,8 +6,8 @@
  */
 
 #include "PlayerStrategy_Test.h"
-#include "../../Black_Jack_lib/src/PlayerStrategy.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "PlayerStrategy.h"
+#include "GlobalDeclarations.h"
 #include <string>
 
 void AIPlayer_OptimalTest::Run_OptimalStrategy()

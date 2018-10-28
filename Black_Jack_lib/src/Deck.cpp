@@ -5,15 +5,15 @@
  *      Author: Stefan
  */
 
-#include "../../Black_Jack_lib/src/Deck.h"
+#include "Deck.h"
 
 #include <memory>
 #include <random>
 #include <stdexcept>
 #include "assert.h"
 #include <sstream>
-#include "../../Black_Jack_lib/src/Card.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "Card.h"
+#include "GlobalDeclarations.h"
 
 void Deck::AddSets(unsigned int  N)
 {

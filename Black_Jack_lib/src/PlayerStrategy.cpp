@@ -5,12 +5,12 @@
  *      Author: Stefan
  */
 
-#include "../../Black_Jack_lib/src/PlayerStrategy.h"
+#include "PlayerStrategy.h"
 
 #include <map>
 #include <string>
 
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "GlobalDeclarations.h"
 
 // Build strategy at compile time
 using Key = std::tuple<unsigned int, bool, bool, bool, unsigned int>;

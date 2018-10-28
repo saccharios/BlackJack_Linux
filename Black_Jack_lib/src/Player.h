@@ -10,8 +10,8 @@
 #include <memory>
 #include <set>
 
-#include "../../Black_Jack_lib/src/Card.h"
-#include "../../Black_Jack_lib/src/PlayerHand.h"
+#include "Card.h"
+#include "PlayerHand.h"
 
 // Forward declaration to avoid #include
 class Deck;

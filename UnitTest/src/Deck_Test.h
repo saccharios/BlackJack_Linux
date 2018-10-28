@@ -8,7 +8,7 @@
 #ifndef SRC_DECK_TEST_H_
 #define SRC_DECK_TEST_H_
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/Deck.h"
+#include "Deck.h"
 
 class DeckTest : public ::testing::Test
 {

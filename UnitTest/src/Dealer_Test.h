@@ -8,8 +8,8 @@
 #ifndef SRC_DEALER_TEST_H_
 #define SRC_DEALER_TEST_H_
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/Dealer.h"
-#include "../../Black_Jack_lib/src/Deck.h"
+#include "Dealer.h"
+#include "Deck.h"
 // Forward declaration
 class Deck;
 

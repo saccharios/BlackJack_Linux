@@ -5,17 +5,17 @@
  *      Author: Stefan
  */
 
-#include "../../Black_Jack_lib/src/Game.h"
+#include "Game.h"
 
 #include <string>
 #include <sstream>
 #include <sstream>
 
-#include "../../Black_Jack_lib/src/Console.h"
-#include "../../Black_Jack_lib/src/Dealer.h"
-#include "../../Black_Jack_lib/src/Deck.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
-#include "../../Black_Jack_lib/src/Player.h"
+#include "Console.h"
+#include "Dealer.h"
+#include "Deck.h"
+#include "GlobalDeclarations.h"
+#include "Player.h"
 
 
 void Game::PlayRound()

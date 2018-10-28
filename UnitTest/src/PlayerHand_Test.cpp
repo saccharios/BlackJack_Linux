@@ -6,8 +6,8 @@
  */
 
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
-#include "../../Black_Jack_lib/src/Card.h"
+#include "GlobalDeclarations.h"
+#include "Card.h"
 
 #include "PlayerHand_Test.h"
 void PlayerHandTest::Run_Payouts()

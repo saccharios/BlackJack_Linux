@@ -10,11 +10,11 @@
 
 #include <string>
 #include <map>
-#include "../../Black_Jack_lib/src/Console.h"
-#include "../../Black_Jack_lib/src/Dealer.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
-#include "../../Black_Jack_lib/src/Player.h"
-#include "../../Black_Jack_lib/src/PlayerHand.h"
+#include "Console.h"
+#include "Dealer.h"
+#include "GlobalDeclarations.h"
+#include "Player.h"
+#include "PlayerHand.h"
 
 
 class HumanPlayer : public Player{

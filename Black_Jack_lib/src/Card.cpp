@@ -5,14 +5,14 @@
  *      Author: Stefan
  */
 
-#include "../../Black_Jack_lib/src/Card.h"
+#include "Card.h"
 
 #include <array>
 #include <string>
 #include <algorithm>
 #include "assert.h"
 #include <sstream>
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "GlobalDeclarations.h"
 
 
 Card::Card(std::string const & face, std::string const & suit):

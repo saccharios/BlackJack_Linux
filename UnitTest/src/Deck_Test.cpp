@@ -8,10 +8,10 @@
 #include "Deck_Test.h"
 #include <memory>
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/Deck.h"
-#include "../../Black_Jack_lib/src/Card.h"
+#include "Deck.h"
+#include "Card.h"
 #include "string"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "GlobalDeclarations.h"
 
 
 

@@ -10,9 +10,9 @@
 
 
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/PlayerStrategy.h"
-#include "../../Black_Jack_lib/src/Player.h"
-#include "../../Black_Jack_lib/src/Deck.h"
+#include "PlayerStrategy.h"
+#include "Player.h"
+#include "Deck.h"
 class PlayerHand;
 
 class PlayerTest : public ::testing::Test

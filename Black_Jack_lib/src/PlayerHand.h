@@ -11,7 +11,7 @@
 #include <memory>
 #include <set>
 
-#include "../../Black_Jack_lib/src/HoleCards.h"
+#include "HoleCards.h"
 // Forward declaration to avoid #include
 class Card;
 class Deck;

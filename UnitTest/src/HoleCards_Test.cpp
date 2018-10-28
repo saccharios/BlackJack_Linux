@@ -7,8 +7,8 @@
 
 #include "HoleCards_Test.h"
 #include "gtest/gtest.h"
-#include "../../Black_Jack_lib/src/Card.h"
-#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "Card.h"
+#include "GlobalDeclarations.h"
 void HoleCardsTest::Run_AddAndRemoveOneCard()
 {
 	_holeCards.AddCard(std::make_unique<Card>("A","s"));
