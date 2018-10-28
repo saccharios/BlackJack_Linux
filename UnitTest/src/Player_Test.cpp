@@ -8,8 +8,8 @@
 
 #include "Player_Test.h"
 
-#include <PlayerHand.h>
-#include "../../BlackJack/src/GlobalDeclarations.h"
+#include "../../Black_Jack_lib/src/PlayerHand.h"
+#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
 #include <iostream>
 #include <fstream>
 

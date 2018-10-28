@@ -9,10 +9,10 @@
 #define SRC_PLAYER_TEST_H_
 
 
-#include <PlayerStrategy.h>
 #include "gtest/gtest.h"
-#include "../../BlackJack/src/Player.h"
-#include "../../BlackJack/src/Deck.h"
+#include "../../Black_Jack_lib/src/PlayerStrategy.h"
+#include "../../Black_Jack_lib/src/Player.h"
+#include "../../Black_Jack_lib/src/Deck.h"
 class PlayerHand;
 
 class PlayerTest : public ::testing::Test

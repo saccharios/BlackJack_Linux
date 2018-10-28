@@ -14,15 +14,12 @@ src + 'Deck_Test.cpp',
 src + 'Dealer_Test.cpp',
 src + 'ConsoleTest.cpp',
 src + 'Card_Test.cpp',
-src + 'PlayerStrategy_Test.cpp',
+# src + 'PlayerStrategy_Test.cpp',
 ]
 
-# L{$GTEST_LOC:\\gtestbuild-1.7.0}" "-LE:\\Code\\GTest\\gtestbuild-1.7.0"
-
-
-# local_env.Append(LIBPATH='E:\Code\GTest\gtestbuild-1.7.0')
-# local_env.Append(LIBS='gtest') 
-local_env.Append(CPPPATH=['E:\Code\GTest\googletest-release-1.7.0\include'])
+local_env.Append(LIBPATH='/home/stefan/repos/gtest/')
+local_env.Append(LIBS=['gtest','gtest_main']) 
+local_env.Append(CPPPATH=['/usr/src/gtest/include'])
 
 ret = local_env.Program(target=target_name, source=src_files)
 

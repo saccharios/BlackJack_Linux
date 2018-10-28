@@ -8,7 +8,7 @@
 #ifndef SRC_HOLECARDS_TEST_H_
 #define SRC_HOLECARDS_TEST_H_
 #include "gtest/gtest.h"
-#include "../../BlackJack/src/HoleCards.h"
+#include "../../Black_Jack_lib/src/HoleCards.h"
 //
 // Forward declarations
 class Card;

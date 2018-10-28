@@ -421,7 +421,7 @@
                             							
                             <targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.release.275732971" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.release"/>
                             							
-                            <builder buildPath="${workspace_loc:/BlackJack_Linux}" command="scons" id="cdt.managedbuild.target.gnu.builder.exe.release.1793477248" incrementalBuildTarget="UnitTest --debug_build" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.release"/>
+                            <builder arguments="-Q" buildPath="${workspace_loc:/BlackJack_Linux}" command="scons" id="cdt.managedbuild.target.gnu.builder.exe.release.1793477248" incrementalBuildTarget="UnitTest --debug_build" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.release"/>
                             							
                             <tool id="cdt.managedbuild.tool.gnu.archiver.base.1769845896" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
                             							
@@ -539,13 +539,13 @@
             		
         </configuration>
         		
-        <configuration configurationName="Release">
+        <configuration configurationName="UnitTest">
             			
             <resource resourceType="PROJECT" workspacePath="/BlackJack_Linux"/>
             		
         </configuration>
         		
-        <configuration configurationName="UnitTest">
+        <configuration configurationName="Release">
             			
             <resource resourceType="PROJECT" workspacePath="/BlackJack_Linux"/>
             		

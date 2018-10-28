@@ -51,9 +51,11 @@ libpath = build_dir + '/' + lib_name + '_'+mode
 SConscript(lib_name +'/SConscript.py', variant_dir=libpath, duplicate=False, exports=['env','lib_name'])
  
 
-env.Append(LIBPATH=[libpath])
+env.Append(LIBPATH=[libpath, 'pthread'])
 env.Append(LIBS=[lib_name]) 
 env.Append(CPPPATH=[libpath + '/src'])
+
+env.Append(LINKFLAGS='-pthread')
 
 variant_dir = build_dir + '/' + target_name + '_'+mode 
 SConscript(target_name +'/SConscript.py', 

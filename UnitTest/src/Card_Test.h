@@ -9,9 +9,9 @@
 #define SRC_CARD_TEST_H_
 
 #include "gtest/gtest.h"
-#include "Card.h"
+#include "../../Black_Jack_lib/src/Card.h"
 #include <string>
-#include "GlobalDeclarations.h"
+#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
 
 
 class CardTest : public ::testing::Test

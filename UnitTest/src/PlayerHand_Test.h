@@ -8,9 +8,9 @@
 #ifndef SRC_PLAYERHAND_TEST_H_
 #define SRC_PLAYERHAND_TEST_H_
 
-#include "../../BlackJack/src/PlayerHand.h"
+#include "../../Black_Jack_lib/src/PlayerHand.h"
 #include "gtest/gtest.h"
-#include "../../BlackJack/src/Deck.h"
+#include "../../Black_Jack_lib/src/Deck.h"
 
 // Forward declaration
 class Card;

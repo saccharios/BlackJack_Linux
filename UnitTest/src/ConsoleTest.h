@@ -9,9 +9,9 @@
 #define CONSOLETEST_H_
 #include "gtest/gtest.h"
 #include <string>
-#include "../../BlackJack/src/GlobalDeclarations.h"
+#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
 #include <sstream>
-#include "../../BlackJack/src/Console.h"
+#include "../../Black_Jack_lib/src/Console.h"
 #include <iostream>
 #include <fstream>
 

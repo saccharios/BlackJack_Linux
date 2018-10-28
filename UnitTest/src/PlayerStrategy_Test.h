@@ -10,10 +10,10 @@
 
 #include "gtest/gtest.h"
 #include <string>
-#include "../../BlackJack/src/GlobalDeclarations.h"
-#include "../../BlackJack/src/Dealer.h"
-#include "../../BlackJack/src/Deck.h"
-#include "../../BlackJack/src/PlayerStrategy.h"
+#include "../../Black_Jack_lib/src/GlobalDeclarations.h"
+#include "../../Black_Jack_lib/src/Dealer.h"
+#include "../../Black_Jack_lib/src/Deck.h"
+#include "../../Black_Jack_lib/src/PlayerStrategy.h"
 
 
 class AIPlayer_OptimalTest : public ::testing::Test

@@ -6,7 +6,7 @@
  */
 
 #include "Dealer_Test.h"
-#include "../../BlackJack/src/Card.h"
+#include "../../Black_Jack_lib/src/Card.h"
 void DealerTest::Run_Start()
 {
 	_dealer.Start();
