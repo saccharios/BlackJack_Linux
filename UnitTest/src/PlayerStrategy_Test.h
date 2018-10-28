@@ -5,8 +5,7 @@
  *      Author: Stefan
  */
 
-#ifndef SRC_PLAYERSTRATEGY_TEST_H_
-#define SRC_PLAYERSTRATEGY_TEST_H_
+#pragma once
 
 #include "gtest/gtest.h"
 #include <string>
@@ -44,4 +43,3 @@ TEST_F(AIPlayer_OptimalTest, Optimal_Strategy)
 
 
 
-#endif /* SRC_PLAYERSTRATEGY_TEST_H_ */

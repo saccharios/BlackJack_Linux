@@ -9,8 +9,8 @@
 #include "../../Black_Jack_lib/src/PlayerStrategy.h"
 #include "../../Black_Jack_lib/src/GlobalDeclarations.h"
 #include <string>
-void
-AIPlayer_OptimalTest::Run_OptimalStrategy()
+
+void AIPlayer_OptimalTest::Run_OptimalStrategy()
 {
 	std::string action = STAND;
 	// Loop over all values and dealervalues, with no pair and no aces
