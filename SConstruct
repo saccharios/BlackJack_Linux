@@ -50,6 +50,9 @@ else:
     mode = 'release'
 
 
+env.Append(CPPPATH=[Dir('.').abspath + 'UnitTest/src'])
+env.Append(CPPPATH=[Dir('.').abspath + 'Black_Jack_lib/src'])
+
 lib_name = 'Black_Jack_lib'
 libpath = build_dir + '/' + lib_name + '_'+mode 
 SConscript(lib_name +'/SConscript.py', variant_dir=libpath, duplicate=False, exports=['env','lib_name'])
@@ -58,6 +61,7 @@ SConscript(lib_name +'/SConscript.py', variant_dir=libpath, duplicate=False, exp
 env.Append(LIBPATH=[libpath, 'pthread'])
 env.Append(LIBS=[lib_name]) 
 env.Append(CPPPATH=[Dir('.').abspath + '/' + lib_name + '/src'])
+
 
 
 variant_dir = build_dir + '/' + target_name + '_'+mode 
