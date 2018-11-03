@@ -31,6 +31,10 @@ print('Start to build ', target_name)
 
 env = Environment(ENV = os.environ,)
 env.Append(CXXFLAGS='--std=c++17') 
+env.Append(CXXFLAGS='--coverage') 
+
+env.Append(LINKFLAGS='-pthread')
+env.Append(LINKFLAGS='--coverage') 
 
 
 
@@ -53,9 +57,8 @@ SConscript(lib_name +'/SConscript.py', variant_dir=libpath, duplicate=False, exp
 
 env.Append(LIBPATH=[libpath, 'pthread'])
 env.Append(LIBS=[lib_name]) 
-env.Append(CPPPATH=[libpath + '/src', Dir('.').abspath + '/' + lib_name + '/src'])
+env.Append(CPPPATH=[Dir('.').abspath + '/' + lib_name + '/src'])
 
-env.Append(LINKFLAGS='-pthread')
 
 variant_dir = build_dir + '/' + target_name + '_'+mode 
 SConscript(target_name +'/SConscript.py', 
