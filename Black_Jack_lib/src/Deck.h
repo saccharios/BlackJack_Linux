@@ -33,6 +33,7 @@ public:
 	void PrintNumCards() const;
 	unsigned int Size() const {return _cardContainer.size();}
 	void SetSeed(unsigned int seed) { _seed = seed; }
+	std::stringstream GetNumCards() const;
 
 private:
 	void AddCompleteSet();

@@ -13,7 +13,7 @@
 #include "string"
 #include "GlobalDeclarations.h"
 
-
+#include "../../../ApprovalTests/ApprovalTests/Approvals.h"
 
 void DeckTest::Run_AddAndRemoveOneCard()
 {
@@ -50,4 +50,10 @@ void DeckTest::Run_AddZeroSets_DEATH()
 {
 	unsigned int NumDecks = 0;
 	EXPECT_DEATH(_deck.AddSets(NumDecks),"");
+}
+void DeckTest::Run_PrintNumCards()
+{
+    _deck.AddSets(1);
+    std::stringstream strm = _deck.GetNumCards();
+    Approvals::verify(strm.str());
 }

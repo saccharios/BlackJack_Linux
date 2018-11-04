@@ -62,8 +62,6 @@ env.Append(LIBPATH=[libpath, 'pthread'])
 env.Append(LIBS=[lib_name]) 
 env.Append(CPPPATH=[Dir('.').abspath + '/' + lib_name + '/src'])
 
-
-
 variant_dir = build_dir + '/' + target_name + '_'+mode 
 SConscript(target_name +'/SConscript.py', 
            variant_dir=variant_dir, 

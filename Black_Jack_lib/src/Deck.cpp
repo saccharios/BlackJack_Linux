@@ -62,9 +62,14 @@ Deck::pCard Deck::Draw()
 
 void Deck::PrintNumCards() const
 {
-	std::stringstream strm;
-	strm << "Cards in Deck = " << Size() << std::endl;
-	console.Write(strm);
+	console.Write(GetNumCards());
+}
+
+std::stringstream Deck::GetNumCards() const
+{
+    std::stringstream strm;
+    strm << "Cards in Deck = " << Size() << std::endl;
+    return strm;
 }
 
 
