@@ -5,7 +5,6 @@ pipeline
 		dockerfile
 		{
 			filename 'Dockerfile'
-			label 'blackjack'
 		}	
     }
     stages 
