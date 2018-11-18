@@ -39,6 +39,11 @@ pipeline {
 		    sh 'scons UnitTest'
           }
 		}
+		stage('Test'){
+			steps{
+				sh './UnitTest'
+			}
+		}
 
 	
   }
