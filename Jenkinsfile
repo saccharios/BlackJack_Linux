@@ -34,10 +34,12 @@ pipeline {
             sh 'scons --debug_build Console_Game'
           }
         }
-		stage('') {
+		stage('build UnitTest') {
 		  steps {
 		    sh 'scons UnitTest'
           }
-    }
+		}
+		}
+	}
   }
 }
