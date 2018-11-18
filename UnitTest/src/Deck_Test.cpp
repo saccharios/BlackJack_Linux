@@ -13,7 +13,7 @@
 #include "string"
 #include "GlobalDeclarations.h"
 
-#include "../../../ApprovalTests/ApprovalTests/Approvals.h"
+//#include "../../../ApprovalTests/ApprovalTests/Approvals.h"
 
 void DeckTest::Run_AddAndRemoveOneCard()
 {
