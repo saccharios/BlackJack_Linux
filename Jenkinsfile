@@ -41,7 +41,7 @@ pipeline {
 		}
 		stage('Test'){
 			steps{
-				sh './UnitTest'
+			    sh 'cd build/UnitTest_debug && ./UnitTest'
 			}
 		}
 
