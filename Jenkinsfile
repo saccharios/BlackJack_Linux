@@ -2,7 +2,11 @@ pipeline
 {
     agent 
     { 
-	docker { image 'blackjack:latest' }
+		dockerfile
+		{
+			filename 'Dockerfile'
+			label 'blackjack'
+		}	
     }
     stages 
     {
@@ -14,7 +18,7 @@ pipeline
                 sh 'scons --version'
             }
         }
-	stage('build')
+	stage('build scons Simulations')
 	{
 	    steps
 	    {
