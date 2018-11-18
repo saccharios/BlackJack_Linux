@@ -12,7 +12,7 @@ pipeline {
         sh 'scons --version'
       }
     }
-    stage('build scons Simulations') {
+    stage('build') {
       parallel {
         stage('build Simulations') {
           steps {
@@ -34,7 +34,10 @@ pipeline {
             sh 'scons --debug_build Console_Game'
           }
         }
-      }
+		stage('') {
+		  steps {
+		    sh 'scons UnitTest'
+          }
     }
   }
 }
