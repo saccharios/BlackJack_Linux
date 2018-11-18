@@ -2,7 +2,7 @@ pipeline
 {
     agent 
     { 
-	docker { image 'my_setup:latest' }
+	docker { image 'blackjack:latest' }
     }
     stages 
     {
@@ -11,6 +11,7 @@ pipeline
             steps 
             {
                 sh 'python --version'
+                sh 'scons --version'
             }
         }
 	stage('build')
