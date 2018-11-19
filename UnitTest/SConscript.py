@@ -16,7 +16,7 @@ src + 'PlayerHand_Test.cpp',
 src + 'PlayerStrategy_Test.cpp',
 ]
 
-local_env.Append(LIBPATH=['/home/stefan/repos/gtest/'])
+local_env.Append(LIBPATH=['/usr/src/gtest/'])
 local_env.Append(LIBS=['gtest',
                        'gtest_main']) 
 local_env.Append(CPPPATH=['/usr/src/gtest/include'])

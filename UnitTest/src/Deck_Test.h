@@ -28,7 +28,7 @@ public:
 	void Run_AddEigthSets();
 	void Run_AddMAX1Sets_DEATH();
 	void Run_AddZeroSets_DEATH();
-	void Run_PrintNumCards();
+//	void Run_PrintNumCards_Approval();
 
 
 private:
@@ -58,10 +58,10 @@ TEST_F(DeckTest, AddEigthSets)
 //	Run_AddZeroSets_DEATH();
 //}
 
-TEST_F(DeckTest, PrintNumCards)
-{
-	Run_PrintNumCards();
-}
+//TEST_F(DeckTest, PrintNumCards)
+//{
+//	Run_PrintNumCards_Approval();
+//}
 
 
 #endif
