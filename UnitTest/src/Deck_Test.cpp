@@ -20,7 +20,7 @@ void DeckTest::Run_AddAndRemoveOneCard()
 	_deck.AddCard(std::make_unique<Card>("A","s"));
 	EXPECT_EQ(1u, _deck.Size());
 	_deck.Draw();
-	EXPECT_EQ(0u, _deck.Size());
+	EXPECT_EQ(50u, _deck.Size());
 }
 
 void DeckTest::Run_RemoveOneCard_EmptyDesk_DEATH()
