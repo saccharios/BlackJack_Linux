@@ -33,3 +33,5 @@
 build/
 *.txt
 *dblite
+
+*language.settings*
