@@ -25,7 +25,8 @@ pipeline {
   }
   post {
 	always {
-		archiveArtifacts artifacts: 'build/UnitTest_release/**', fingerprint: true
+		archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
+		archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
 	}
   }
 }
