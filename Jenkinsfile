@@ -18,8 +18,12 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+        steps {
+		  script{
+				catchError{
+					sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+				}
+		}
 		step([$class: 'XUnitBuilder',  
 			thresholds : [
 			   [$class: 'FailedThreshold', failureThreshold: '0',  unstableThreshold: '0']],
