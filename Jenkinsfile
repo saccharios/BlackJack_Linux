@@ -23,4 +23,10 @@ pipeline {
       }
     }
   }
+  post {
+	always {
+		archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest', fingerprint: true
+		junit 'build/UnitTest_release/*xml'
+	}
+  }
 }
