@@ -26,7 +26,7 @@ pipeline {
 			   [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: ''],
 			   [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
 			 tools : [
-				[$class: 'GoogleTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
+				[$class: 'GoogleTestType', pattern: 'build/UnitTest_release/unit_test_results.xml']]
 		])
       }
     }
