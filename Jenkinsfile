@@ -58,6 +58,8 @@ pipeline {
   }
   post {
 	always {
+		archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
+		archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
 		archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
 		archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
 	}
