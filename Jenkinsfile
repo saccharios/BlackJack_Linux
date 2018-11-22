@@ -26,9 +26,10 @@ pipeline {
 		}
 		step([$class: 'XUnitBuilder',  
 			thresholds : [
-			   [$class: 'FailedThreshold', failureThreshold: '0',  unstableThreshold: '0']],
+			    [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: '0'],
+				[$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
 			 tools : [
-				[$class: 'GoogleTestType', pattern: 'build/UnitTest_release/unit_test_results.xml', stopProcessingIfError: false]]
+				[$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
 		])
       }
     }
