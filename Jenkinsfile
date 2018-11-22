@@ -23,8 +23,8 @@ pipeline {
 		
 		step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, 
 			thresholds : [
-			   [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: ''],
-			   [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
+			   [$class: 'FailedThreshold', failureThreshold: '0'],
+			   [$class: 'SkippedThreshold', failureThreshold: '0']],
 			 tools : [
 				[$class: 'GoogleTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
 		])
