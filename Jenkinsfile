@@ -21,10 +21,10 @@ pipeline {
       steps {
         sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
 		
-		step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, 
+		step([$class: 'XUnitBuilder',  
 			thresholds : [
-			   [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: ''],
-			   [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: '']],
+			   [$class: 'FailedThreshold', failureThreshold: '1',  unstableThreshold: '0']
+			   ],
 			 tools : [
 				[$class: 'GoogleTestType', pattern: 'build/UnitTest_release/unit_test_results.xml']]
 		])
