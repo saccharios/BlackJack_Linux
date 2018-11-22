@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'cd build/UnitTest_release && ./UnitTest --gtest_filter=*Deck*'
+        sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
       }
     }
   }
