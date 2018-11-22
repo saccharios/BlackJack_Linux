@@ -20,8 +20,9 @@ pipeline {
     stage('Test') {
       steps {
         sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
-	  }
-	  steps{
+	}}
+	stage('record'){
+		steps{
 		step([$class: 'XUnitBuilder',  
 			thresholds : [
 			   [$class: 'FailedThreshold', failureThreshold: '0',  unstableThreshold: '0']
