@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+        sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml', 
 		
 		step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1
 			thresholds : [
