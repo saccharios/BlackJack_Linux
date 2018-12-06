@@ -12,6 +12,17 @@ pipeline {
         sh 'scons --version'
       }
     }
+    stage('fail by intention') {
+      steps {
+        try{
+            sh "exit 1"
+            currentBuild.result = 'SUCCESS'
+        } catch(Exception ex) {
+            currentBuild.restul = 'NOT_BUILT'
+        }
+        cho "RESULT: ${currentBuild.result}"
+      }
+    }
 	
 	stage('build Simulations') {
      steps {
