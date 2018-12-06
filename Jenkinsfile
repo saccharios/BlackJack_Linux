@@ -20,7 +20,7 @@ pipeline {
         } catch(Exception ex) {
             currentBuild.restul = 'NOT_BUILT'
         }
-        cho "RESULT: ${currentBuild.result}"
+        echo "RESULT: ${currentBuild.result}"
       }
     }
 	
