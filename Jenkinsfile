@@ -19,7 +19,7 @@ pipeline {
             currentBuild.result = 'SUCCESS'
             echo "RESULT: ${currentBuild.result}"
         } catch(Exception ex) {
-            currentBuild.restul = 'NOT_BUILT'
+            currentBuild.result = 'NOT_BUILT'
             echo "RESULT: ${currentBuild.result}"
         }}
       }
