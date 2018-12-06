@@ -13,13 +13,16 @@ pipeline {
       }
     }
     stage('fail by intention') {
-        try{
+      steps{
+        script{try{
             sh "exit 1"
             currentBuild.result = 'SUCCESS'
+            echo "RESULT: ${currentBuild.result}"
         } catch(Exception ex) {
             currentBuild.restul = 'NOT_BUILT'
-        }
-        echo "RESULT: ${currentBuild.result}"
+            echo "RESULT: ${currentBuild.result}"
+        }}
+      }
     }
 	
 	stage('build Simulations') {
