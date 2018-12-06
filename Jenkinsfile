@@ -13,7 +13,6 @@ pipeline {
       }
     }
     stage('fail by intention') {
-      steps {
         try{
             sh "exit 1"
             currentBuild.result = 'SUCCESS'
@@ -21,7 +20,6 @@ pipeline {
             currentBuild.restul = 'NOT_BUILT'
         }
         echo "RESULT: ${currentBuild.result}"
-      }
     }
 	
 	stage('build Simulations') {
