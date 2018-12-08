@@ -35,7 +35,9 @@ pipeline {
     }
     
     stage('build UnitTest') {
-      SconsCommand()
+      steps {
+        SconsCommand()
+      }
     }
     stage('Test') {
         steps {
@@ -66,7 +68,5 @@ pipeline {
 
 def SconsCommand()
 {
-  steps {
     sh 'scons UnitTest'
-  }
 }
