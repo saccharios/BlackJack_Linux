@@ -12,6 +12,7 @@ pipeline {
         sh 'scons --version'
       }
     }
+    
     stage('build Simulations') {
      steps {
         sh 'scons Simulations'
@@ -34,9 +35,7 @@ pipeline {
     }
     
     stage('build UnitTest') {
-      steps {
-        sh 'scons UnitTest'
-      }
+      SconsCommand('UnitTest')
     }
     stage('Test') {
         steps {
@@ -62,5 +61,12 @@ pipeline {
         archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
         archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
     }
+  }
+}
+
+def SconsCommand(cmd)
+{
+  steps {
+    sh 'scons cmd'
   }
 }
