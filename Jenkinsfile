@@ -36,7 +36,7 @@ pipeline {
     
     stage('build UnitTest') {
       steps {
-        SconsCommand()
+        SconsCommand('UnitTest')
       }
     }
     stage('Test') {
@@ -66,7 +66,7 @@ pipeline {
   }
 }
 
-def SconsCommand()
+def SconsCommand(cmd)
 {
-    sh 'scons UnitTest'
+    sh 'scons ' + cmd
 }
