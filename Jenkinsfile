@@ -9,28 +9,28 @@ pipeline {
     stage('pyhton version') {
       steps {
         sh 'python --version'
-        sh 'scons --version'
+        SconsCommand('--version')
       }
     }
     
     stage('build Simulations') {
      steps {
-        sh 'scons Simulations'
+        SconsCommand('Simulations')
       }
     }
     stage('build Simulations debug') {
       steps {
-        sh 'scons --debug_build Simulations'
+        SconsCommand('--debug_build Simulations')
       }
     }
     stage('build Console Game') {
       steps {
-        sh 'scons Console_Game'
+        SconsCommand('Console_Game')
       }
     }
     stage('build Console Game debug') {
       steps {
-        sh 'scons --debug_build Console_Game'
+        SconsCommand('--debug_build Console_Game')
       }
     }
     
