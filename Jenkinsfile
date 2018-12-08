@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    stage('pyhton version') {
+    stage('python version') {
       agent { dockerfile { filename 'Dockerfile' }}
       steps {
         sh 'python --version'
@@ -10,32 +10,38 @@ pipeline {
     }
     
     stage('build Simulations') {
+      agent { dockerfile { filename 'Dockerfile' }}
      steps {
         SconsCommand('Simulations')
       }
     }
     stage('build Simulations debug') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         SconsCommand('--debug_build Simulations')
       }
     }
     stage('build Console Game') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         SconsCommand('Console_Game')
       }
     }
     stage('build Console Game debug') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         SconsCommand('--debug_build Console_Game')
       }
     }
     
     stage('build UnitTest') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         SconsCommand('UnitTest')
       }
     }
     stage('Test') {
+      agent { dockerfile { filename 'Dockerfile' }}
         steps {
           script{
                 catchError{
