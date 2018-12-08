@@ -1,7 +1,8 @@
 pipeline {
-  agent { dockerfile { filename 'Dockerfile' }}
+  agent none
   stages {
     stage('pyhton version') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         sh 'python --version'
         SconsCommand('--version')
