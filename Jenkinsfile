@@ -33,15 +33,16 @@ pipeline {
         SconsCommand('--debug_build Console_Game')
       }
     }
-    
+    stage('UnitTest)
+    { 
+    agent { dockerfile { filename 'Dockerfile' }}
+    stages{
     stage('build UnitTest') {
-      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         SconsCommand('UnitTest')
       }
     }
     stage('Test') {
-      agent { dockerfile { filename 'Dockerfile' }}
         steps {
           script{
                 catchError{
@@ -57,6 +58,7 @@ pipeline {
         ])
       }
     }
+    }}
   }
   post {
     always {
