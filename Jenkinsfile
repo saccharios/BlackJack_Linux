@@ -1,6 +1,6 @@
 pipeline {
   agent none
-  stages {
+  stages { parallel{
     stage('python version') {
       agent { dockerfile { filename 'Dockerfile' }}
       steps {
@@ -51,7 +51,7 @@ pipeline {
             }
       }
     }
-  }
+  }}
 }
 
 def SconsCommand(cmd)
