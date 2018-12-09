@@ -9,15 +9,29 @@ pipeline {
       }
     }
     
-    stage('Sim'){
+    stage('UnitTest'){
       agent { dockerfile { filename 'Dockerfile' }}
+      
+      
       stages{
-        stage('build Simulations') {
-          steps { SconsCommand('Simulations') }
-        }
-        stage('build Simulations debug') {
-          steps { SconsCommand('--debug_build Simulations') }
-        }
+      
+            stage('build UnitTest') { steps { SconsCommand('UnitTest')}}
+            stage('Test') {
+                steps {
+                  script{
+                        catchError{
+                            sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+                        }
+                  }
+                  step([$class: 'XUnitBuilder',  
+                    thresholds : [
+                        [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: '0'],
+                        [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
+                     tools : [
+                        [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
+                  ])
+                }
+            }
       }
     }
   }
