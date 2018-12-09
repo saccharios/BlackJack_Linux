@@ -14,8 +14,10 @@ pipeline {
           steps { 
             SconsCommand('--debug_build Simulations') 
             SconsCommand('Simulations')
-            archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
           }
+          post{ always {
+            archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
+          }}
     }
     stage('Consolge Game'){
       agent { dockerfile { filename 'Dockerfile' }}
