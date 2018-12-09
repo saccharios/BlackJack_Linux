@@ -9,12 +9,33 @@ pipeline {
       }
     }
     
+    stage('build Simulations') {
+      agent { dockerfile { filename 'Dockerfile' }}
+      steps { 
+        SconsCommand('Simulations')
+        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
+      }
+    }
+    stage('build Simulations debug') {
+      agent { dockerfile { filename 'Dockerfile' }}
+      steps { SconsCommand('--debug_build Simulations') }
+    }
+    
+    stage('build Console Game') {
+      agent { dockerfile { filename 'Dockerfile' }}
+      steps { 
+        SconsCommand('Console_Game')
+        archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
+      }
+    }
+    stage('build Console Game debug') {
+      agent { dockerfile { filename 'Dockerfile' }}
+      steps { SconsCommand('--debug_build Console_Game')}
+    }
+
     stage('UnitTest'){
       agent { dockerfile { filename 'Dockerfile' }}
-      
-      
       stages{
-      
             stage('build UnitTest') { steps { SconsCommand('UnitTest')}}
             stage('Test') {
                 steps {
@@ -37,13 +58,6 @@ pipeline {
       }
     }
   }
-  
-//  post {
-//  always {
-//        archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
-//        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
-//    }
-//  }
 }
 
 def SconsCommand(cmd)
