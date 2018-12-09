@@ -30,9 +30,9 @@ pipeline {
                      tools : [
                         [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
                   ])
+                  archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
+                  archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
                 }
-                archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
-                archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
             }
       }
     }
