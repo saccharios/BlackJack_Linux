@@ -28,8 +28,8 @@ pipeline {
       steps { SconsCommand('--debug_build Console_Game')}
     }
 */
-    stage('UnitTest)
-    { 
+//    stage('UnitTest)
+//    { 
 //        agent { dockerfile { filename 'Dockerfile' }}
         stages{
             stage('build UnitTest') {
@@ -51,7 +51,7 @@ pipeline {
                 ])
               }
             }
-        }
+//        }
     }
   }
   post {
