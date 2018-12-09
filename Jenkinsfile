@@ -38,12 +38,12 @@ pipeline {
     }
   }
   
-  post {
-  always {
+//  post {
+//  always {
 //        archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
 //        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
-    }
-  }
+//    }
+//  }
 }
 
 def SconsCommand(cmd)
