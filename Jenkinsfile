@@ -1,13 +1,14 @@
 pipeline {
   agent none
-  stages { stage('Dummy Parallel'){ parallel{
-    stage('python version') {
+  stages {
+    stage('Verify Dockerfile') {
       agent { dockerfile { filename 'Dockerfile' }}
       steps {
         sh 'python --version'
         SconsCommand('--version')
       }
     }
+    stage('Build in parallel'){ parallel {
     
     stage('Simulation'){
       agent { dockerfile { filename 'Dockerfile' }}
@@ -19,7 +20,7 @@ pipeline {
             archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
           }}
     }
-    stage('Consolge Game'){
+    stage('Console Game'){
       agent { dockerfile { filename 'Dockerfile' }}
           steps { 
             SconsCommand('--debug_build Console_Game') 
