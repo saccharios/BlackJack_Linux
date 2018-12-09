@@ -31,6 +31,8 @@ pipeline {
                         [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
                   ])
                 }
+                archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
+                archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
             }
       }
     }
@@ -40,8 +42,6 @@ pipeline {
   always {
 //        archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
 //        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
-        archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
-        archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
     }
   }
 }
