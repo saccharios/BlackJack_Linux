@@ -1,66 +1,61 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
-
-  }
+  agent none
   stages {
-    stage('pyhton version') {
+    stage('Verify Dockerfile') {
+      agent { dockerfile { filename 'Dockerfile' }}
       steps {
         sh 'python --version'
-        sh 'scons --version'
+        SconsCommand('--version')
       }
     }
-    stage('build Simulations') {
-     steps {
-        sh 'scons Simulations'
-      }
-    }
-    stage('build Simulations debug') {
-      steps {
-        sh 'scons --debug_build Simulations'
-      }
-    }
-    stage('build Console Game') {
-      steps {
-        sh 'scons Console_Game'
-      }
-    }
-    stage('build Console Game debug') {
-      steps {
-        sh 'scons --debug_build Console_Game'
-      }
-    }
+    stage('Build in parallel'){ parallel {
     
-    stage('build UnitTest') {
-      steps {
-        sh 'scons UnitTest'
-      }
+    stage('Simulation'){
+      agent { dockerfile { filename 'Dockerfile' }}
+          steps { 
+            SconsCommand('--debug_build Simulations') 
+            SconsCommand('Simulations')
+          }
+          post{ always {
+            archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
+          }}
     }
-    stage('Test') {
-        steps {
-          script{
-                catchError{
-                    sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+    stage('Console Game'){
+      agent { dockerfile { filename 'Dockerfile' }}
+          steps { 
+            SconsCommand('--debug_build Console_Game') 
+            SconsCommand('Console_Game')
+            archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
+          }
+    }
+    stage('UnitTest'){
+      agent { dockerfile { filename 'Dockerfile' }}
+      stages{
+            stage('build UnitTest') { steps { SconsCommand('UnitTest')}}
+            stage('Test') {
+                steps {
+                  script{
+                        catchError{
+                            sh 'cd build/UnitTest_release && ./UnitTest --gtest_output=xml:unit_test_results.xml'
+                        }
+                  }
+                  step([$class: 'XUnitBuilder',  
+                    thresholds : [
+                        [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: '0'],
+                        [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
+                     tools : [
+                        [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
+                  ])
+                  archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
+                  archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
                 }
-        }
-        step([$class: 'XUnitBuilder',  
-            thresholds : [
-                [$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '0', unstableNewThreshold: '', unstableThreshold: '0'],
-                [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']],
-             tools : [
-                [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
-        ])
+            }
       }
     }
-  }
-  post {
-    always {
-        archiveArtifacts artifacts: 'build/Console_Game*/Console_Game', fingerprint: true
-        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
-        archiveArtifacts artifacts: 'build/UnitTest_release/UnitTest*', fingerprint: true
-        archiveArtifacts artifacts: 'build/UnitTest_release/*xml', fingerprint: true
-    }
-  }
+  }}}
+}
+
+def SconsCommand(cmd)
+{
+    sh 'scons ' + cmd
 }
