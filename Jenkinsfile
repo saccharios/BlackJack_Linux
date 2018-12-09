@@ -52,8 +52,7 @@ pipeline {
             }
       }
     }
-  }}
-  }
+  }}}
 }
 
 def SconsCommand(cmd)
