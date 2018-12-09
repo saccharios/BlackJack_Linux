@@ -31,7 +31,7 @@ pipeline {
 //    stage('UnitTest)
 //    { 
 //        agent { dockerfile { filename 'Dockerfile' }}
-        stages{
+//        stages{
             stage('build UnitTest') {
               steps { SconsCommand('UnitTest')}
             }
@@ -50,7 +50,7 @@ pipeline {
                         [$class: 'GoogleTestType',  deleteOutputFiles: false, failIfNotNew: false, pattern: 'build/UnitTest_release/unit_test_results.xml', skipNoTestFiles: false, stopProcessingIfError: true]]
                 ])
               }
-            }
+//            }
 //        }
     }
   }
