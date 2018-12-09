@@ -10,13 +10,12 @@ pipeline {
     }
     
     stage('Sim'){
+      agent { dockerfile { filename 'Dockerfile' }}
       stages{
         stage('build Simulations') {
-          agent { dockerfile { filename 'Dockerfile' }}
           steps { SconsCommand('Simulations') }
         }
         stage('build Simulations debug') {
-          agent { dockerfile { filename 'Dockerfile' }}
           steps { SconsCommand('--debug_build Simulations') }
         }
       }
