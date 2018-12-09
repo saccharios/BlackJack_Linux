@@ -9,7 +9,7 @@ pipeline {
       }
     }
     
-    stage('Simulation){
+    stage('Simulation'){
       agent { dockerfile { filename 'Dockerfile' }}
           steps { 
             SconsCommand('--debug_build Simulations') 
