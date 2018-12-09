@@ -9,14 +9,17 @@ pipeline {
       }
     }
     
-    
-    stage('build Simulations') {
-      agent { dockerfile { filename 'Dockerfile' }}
-      steps { SconsCommand('Simulations') }
-    }
-    stage('build Simulations debug') {
-      agent { dockerfile { filename 'Dockerfile' }}
-      steps { SconsCommand('--debug_build Simulations') }
+    stage('Sim'){
+      stages{
+        stage('build Simulations') {
+          agent { dockerfile { filename 'Dockerfile' }}
+          steps { SconsCommand('Simulations') }
+        }
+        stage('build Simulations debug') {
+          agent { dockerfile { filename 'Dockerfile' }}
+          steps { SconsCommand('--debug_build Simulations') }
+        }
+      }
     }
   }
 }
