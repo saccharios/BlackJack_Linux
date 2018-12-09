@@ -9,16 +9,13 @@ pipeline {
       }
     }
     
-    stage('build Simulations') {
+    stage('Simulation){
       agent { dockerfile { filename 'Dockerfile' }}
-      steps { 
-        SconsCommand('Simulations')
-        archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
-      }
-    }
-    stage('build Simulations debug') {
-      agent { dockerfile { filename 'Dockerfile' }}
-      steps { SconsCommand('--debug_build Simulations') }
+          steps { 
+            SconsCommand('--debug_build Simulations') 
+            SconsCommand('Simulations')
+            archiveArtifacts artifacts: 'build/Simulations*/Simulations', fingerprint: true
+          }
     }
     
     stage('build Console Game') {
